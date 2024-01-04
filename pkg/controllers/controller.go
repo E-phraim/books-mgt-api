@@ -38,7 +38,7 @@ func GetOneBook(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreateBook(w http.ResponseWriter, r *http.Request) {
-	NewEntry := models.Book{}
+	NewEntry := &models.Book{}
 	utils.ParseBody(r, NewEntry)
 
 	b := NewEntry.CreateBook()
@@ -46,6 +46,7 @@ func CreateBook(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
+	fmt.Println(NewEntry)
 }
 
 func DeleteOneBook(w http.ResponseWriter, r *http.Request) {

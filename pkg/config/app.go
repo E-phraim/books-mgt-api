@@ -11,7 +11,9 @@ var (
 )
 
 func Connect() {
-	dbConn, err := gorm.Open("mysql", "root:@tcp(127.0.0.1:3306)/booksmgt?charset=utf8&parseTime=True&loc=Local")
+	dbConn, err := gorm.Open("mysql", "root:administration@tcp(localhost:3306)/booksmgt?charset=utf8&parseTime=True&loc=Local")
+	// dbConn, err := gorm.Open("mysql", "root:administration/booksmgt?charset=utf8&parseTime=True&loc=Local")
+
 	if err != nil {
 		panic(err)
 	}
